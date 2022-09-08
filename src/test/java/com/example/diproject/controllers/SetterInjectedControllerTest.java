@@ -1,6 +1,6 @@
 package com.example.diproject.controllers;
 
-import com.example.diproject.services.GreetingServiceImpl;
+import com.example.diproject.services.ConstructorGreetingsServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +14,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         setterInjectedController = new SetterInjectedController();
-        setterInjectedController.setGreetingService(new GreetingServiceImpl());
+        setterInjectedController.setGreetingService(new ConstructorGreetingsServiceImpl());
     }
 
     @Test

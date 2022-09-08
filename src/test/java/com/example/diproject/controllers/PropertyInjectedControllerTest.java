@@ -1,6 +1,6 @@
 package com.example.diproject.controllers;
 
-import com.example.diproject.services.GreetingServiceImpl;
+import com.example.diproject.services.ConstructorGreetingsServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +14,7 @@ class PropertyInjectedControllerTest {
     void setUp() {
         propertyInjectedController = new PropertyInjectedController();
 
-        propertyInjectedController.greetingService = new GreetingServiceImpl();
+        propertyInjectedController.greetingService = new ConstructorGreetingsServiceImpl();
     }
 
     @Test
