@@ -1,9 +1,6 @@
 package com.example.diproject;
 
-import com.example.diproject.controllers.ConstructorInjectedController;
-import com.example.diproject.controllers.MyController;
-import com.example.diproject.controllers.PropertyInjectedController;
-import com.example.diproject.controllers.SetterInjectedController;
+import com.example.diproject.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,6 +10,11 @@ public class DiProjectApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(DiProjectApplication.class, args);
+
+		I18nController i18nController = (I18nController) applicationContext.getBean("i18nController");
+
+		System.out.println(i18nController.sayHello());
+
 		MyController myController = (MyController) applicationContext.getBean("myController");
 
 		System.out.println(myController.sayHello());
