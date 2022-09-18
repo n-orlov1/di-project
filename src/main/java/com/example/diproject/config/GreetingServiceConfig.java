@@ -1,5 +1,7 @@
 package com.example.diproject.config;
 
+import com.example.diproject.repositories.EnglishGreetingRepository;
+import com.example.diproject.repositories.EnglishGreetingRepositoryImpl;
 import com.example.diproject.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -31,9 +33,14 @@ public class GreetingServiceConfig {
     }
 
     @Bean
+    EnglishGreetingRepository englishGreetingRepository(){
+        return new EnglishGreetingRepositoryImpl();
+    }
+
+    @Bean
     @Profile("english")
-    I18nEnglishGreetingService i18nService() {
-        return new I18nEnglishGreetingService();
+    I18nEnglishGreetingService i18nService(EnglishGreetingRepository englishGreetingRepository) {
+        return new I18nEnglishGreetingService(englishGreetingRepository);
     }
 
     @Bean("i18nService")
