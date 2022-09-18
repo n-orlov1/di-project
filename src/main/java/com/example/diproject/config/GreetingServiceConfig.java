@@ -1,13 +1,19 @@
 package com.example.diproject.config;
 
-import com.example.diproject.services.ConstructorGreetingsServiceImpl;
-import com.example.diproject.services.PropertyGreetingServiceImpl;
-import com.example.diproject.services.SetterGreetingsServiceImpl;
+import com.example.diproject.services.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Bean
+    @Primary
+    PrimaryGreetingServiceImpl primaryGreetingService() {
+        return new PrimaryGreetingServiceImpl();
+    }
 
     @Bean
     ConstructorGreetingsServiceImpl constructorGreetingsService() {
@@ -22,5 +28,17 @@ public class GreetingServiceConfig {
     @Bean
     SetterGreetingsServiceImpl setterGreetingsService() {
         return new SetterGreetingsServiceImpl();
+    }
+
+    @Bean
+    @Profile("english")
+    I18nEnglishGreetingService i18nService() {
+        return new I18nEnglishGreetingService();
+    }
+
+    @Bean("i18nService")
+    @Profile("russian")
+    I18nRussianGreetingService i18nRussianGreetingService() {
+        return new I18nRussianGreetingService();
     }
 }
