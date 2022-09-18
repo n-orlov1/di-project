@@ -4,7 +4,9 @@ import com.example.diproject.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan(basePackages = {"com.example.diproject", "com.example.pets"})
 @SpringBootApplication
 public class DiProjectApplication {
 
@@ -43,6 +45,11 @@ public class DiProjectApplication {
 		MyController myController2 = (MyController) applicationContext.getBean("myController");
 
 		System.out.println(myController2.getGreeting());
+
+		System.out.println("------Pet Controller");
+
+		PetController petController = applicationContext.getBean(PetController.class);
+		System.out.println(petController.whichPetIsTheBest());
 	}
 
 }
