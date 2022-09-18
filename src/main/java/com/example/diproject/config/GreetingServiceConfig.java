@@ -6,23 +6,16 @@ import com.example.diproject.services.*;
 import com.example.pets.DogPetServiceImpl;
 import com.example.pets.PetService;
 import com.example.pets.PetServiceFactory;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 @Configuration
+@ImportResource("classpath:di-config.xml")
 public class GreetingServiceConfig {
 
     @Bean
     @Primary
     PrimaryGreetingServiceImpl primaryGreetingService() {
         return new PrimaryGreetingServiceImpl();
-    }
-
-    @Bean
-    ConstructorGreetingsServiceImpl constructorGreetingsService() {
-        return new ConstructorGreetingsServiceImpl();
     }
 
     @Bean
