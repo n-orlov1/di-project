@@ -1,6 +1,7 @@
 package com.example.diproject.controllers;
 
 import com.example.pets.PetService;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
