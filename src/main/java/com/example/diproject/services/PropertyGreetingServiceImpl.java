@@ -2,7 +2,7 @@ package com.example.diproject.services;
 
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
 public class PropertyGreetingServiceImpl implements GreetingService {
     @Override
     public String sayGreeting() {

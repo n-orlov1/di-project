@@ -2,7 +2,8 @@ package com.example.diproject.services;
 
 import org.springframework.stereotype.Service;
 
-@Service
+//@Service
+
 public class ConstructorGreetingsServiceImpl implements GreetingService {
     @Override
     public String sayGreeting() {
