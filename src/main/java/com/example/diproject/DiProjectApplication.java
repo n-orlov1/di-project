@@ -1,6 +1,8 @@
 package com.example.diproject;
 
 import com.example.diproject.controllers.*;
+import com.example.diproject.services.PrototypeBean;
+import com.example.diproject.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -50,6 +52,22 @@ public class DiProjectApplication {
 
 		PetController petController = applicationContext.getBean(PetController.class);
 		System.out.println(petController.whichPetIsTheBest());
+
+		System.out.println("------Singleton Bean");
+
+		SingletonBean singletonBean1 = applicationContext.getBean(SingletonBean.class);
+		System.out.println(singletonBean1.getMyScope());
+		SingletonBean singletonBean2 = applicationContext.getBean(SingletonBean.class);
+		System.out.println(singletonBean2.getMyScope());
+
+		System.out.println("------Prototype Bean");
+
+		PrototypeBean prototypeBean1 = applicationContext.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean1.getMyScope());
+		PrototypeBean prototypeBean2 = applicationContext.getBean(PrototypeBean.class);
+		System.out.println(prototypeBean2.getMyScope());
+
+
 	}
 
 }
