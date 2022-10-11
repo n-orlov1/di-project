@@ -1,6 +1,7 @@
 package com.example.diproject;
 
 import com.example.diproject.controllers.*;
+import com.example.diproject.datasource.FakeDataSource;
 import com.example.diproject.services.PrototypeBean;
 import com.example.diproject.services.SingletonBean;
 import org.springframework.boot.SpringApplication;
@@ -67,6 +68,13 @@ public class DiProjectApplication {
 		PrototypeBean prototypeBean2 = applicationContext.getBean(PrototypeBean.class);
 		System.out.println(prototypeBean2.getMyScope());
 
+
+		System.out.println("------Fake Data Source(EXT. PROPERTIES)");
+
+		FakeDataSource fakeDataSource = applicationContext.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
 
 	}
 

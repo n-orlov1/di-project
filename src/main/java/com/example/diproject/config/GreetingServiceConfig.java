@@ -1,15 +1,18 @@
 package com.example.diproject.config;
 
+import com.example.diproject.datasource.FakeDataSource;
 import com.example.diproject.repositories.EnglishGreetingRepository;
 import com.example.diproject.repositories.EnglishGreetingRepositoryImpl;
 import com.example.diproject.services.*;
 import com.example.pets.DogPetServiceImpl;
 import com.example.pets.PetService;
 import com.example.pets.PetServiceFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
 @Configuration
 @ImportResource("classpath:di-config.xml")
+@PropertySource("classpath:datasource.properties")
 public class GreetingServiceConfig {
 
     @Bean
@@ -59,5 +62,16 @@ public class GreetingServiceConfig {
     @Bean
     PetService catPetService(PetServiceFactory petServiceFactory) {
         return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${test.username}") String username, @Value("${test.password}")String password, @Value("${test.jdbcUrl}")String jdbcUrl) {
+
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcUrl);
+
+        return fakeDataSource;
     }
 }
