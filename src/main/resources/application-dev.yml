@@ -1,0 +1,4 @@
+test:
+  username: DevYmlUsername
+  password: DevYmlPassword
+  jdbcUrl: DevYmlJdbcUrl

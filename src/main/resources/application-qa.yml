@@ -1,0 +1,4 @@
+test:
+  username: QAYmlUsername
+  password: QAYmlPassword
+  jdbcUrl: QAYmlJdbcUrl
