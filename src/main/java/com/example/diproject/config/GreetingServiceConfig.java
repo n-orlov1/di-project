@@ -8,8 +8,9 @@ import com.example.pets.DogPetServiceImpl;
 import com.example.pets.PetService;
 import com.example.pets.PetServiceFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
-
+@EnableConfigurationProperties(SfgConstructorConfig.class)
 @Configuration
 @ImportResource("classpath:di-config.xml")
 public class GreetingServiceConfig {
@@ -64,12 +65,12 @@ public class GreetingServiceConfig {
     }
 
     @Bean
-    FakeDataSource fakeDataSource(@Value("${test.username}") String username, @Value("${test.password}")String password, @Value("${test.jdbcUrl}")String jdbcUrl) {
+    FakeDataSource fakeDataSource(SfgConstructorConfig sfgConstructorConfig) {
 
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbcurl(jdbcUrl);
+        fakeDataSource.setUsername(sfgConstructorConfig.getUsername());
+        fakeDataSource.setPassword(sfgConstructorConfig.getPassword());
+        fakeDataSource.setJdbcurl(sfgConstructorConfig.getJdbcUrl());
 
         return fakeDataSource;
     }

@@ -1,6 +1,7 @@
 package com.example.diproject;
 
 import com.example.diproject.config.SfgConfiguration;
+import com.example.diproject.config.SfgConstructorConfig;
 import com.example.diproject.controllers.*;
 import com.example.diproject.datasource.FakeDataSource;
 import com.example.diproject.services.PrototypeBean;
@@ -82,6 +83,12 @@ public class DiProjectApplication {
 		System.out.println(sfgConfiguration.getUsername());
 		System.out.println(sfgConfiguration.getPassword());
 		System.out.println(sfgConfiguration.getJdbcurl());
+
+		System.out.println("--------Constructor Binding");
+		SfgConstructorConfig sfgConstructorConfig = applicationContext.getBean(SfgConstructorConfig.class);
+		System.out.println(sfgConstructorConfig.getUsername());
+		System.out.println(sfgConstructorConfig.getPassword());
+		System.out.println(sfgConstructorConfig.getJdbcUrl());
 
 	}
 
