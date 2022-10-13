@@ -1,5 +1,6 @@
 package com.example.diproject;
 
+import com.example.diproject.config.SfgConfiguration;
 import com.example.diproject.controllers.*;
 import com.example.diproject.datasource.FakeDataSource;
 import com.example.diproject.services.PrototypeBean;
@@ -75,6 +76,12 @@ public class DiProjectApplication {
 		System.out.println(fakeDataSource.getUsername());
 		System.out.println(fakeDataSource.getPassword());
 		System.out.println(fakeDataSource.getJdbcurl());
+
+		System.out.println("--------Config Props Bean");
+		SfgConfiguration sfgConfiguration = applicationContext.getBean(SfgConfiguration.class);
+		System.out.println(sfgConfiguration.getUsername());
+		System.out.println(sfgConfiguration.getPassword());
+		System.out.println(sfgConfiguration.getJdbcurl());
 
 	}
 
